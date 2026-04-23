@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell with ShopHub - ShopHub</title>
+    <link rel="stylesheet" href="../css/categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .sell-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FF6B35;
+            box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            background-color: #FF6B35;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #E85A25;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,107,53,0.3);
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            background: #F7F7F7;
+            border-radius: 12px;
+        }
+
+        .benefit-card i {
+            font-size: 40px;
+            color: #FF6B35;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .benefit-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .sell-container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1><i class="fas fa-shopping-bag"></i> ShopHub</h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="action-btn">
+                        <span>Wishlist</span>
+                    </a>
+                    <a href="cart.html" class="action-btn">
+                        <span>Cart</span>
+                    </a>
+                    <a href="#" class="action-btn">
+                        <span>Account</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="categories.html" class="nav-link">Categories</a></li>
+                    <li><a href="bestsellers.html" class="nav-link">Best Sellers</a></li>
+                    <li><a href="deals.html" class="nav-link">Deals</a></li>
+                    <li><a href="sell.html" class="nav-link active">Sell</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title Section -->
+    <section class="categories" style="background: linear-gradient(135deg, #FF6B35, #004E89); color: white; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 48px; margin: 30px 0; color: white;">Start Selling on ShopHub</h1>
+            <p style="font-size: 18px; opacity: 0.9;">Reach Millions of Customers & Grow Your Business</p>
+        </div>
+    </section>
+
+    <!-- Sell Form Section -->
+    <section class="featured">
+        <div class="container">
+            <div class="sell-container">
+                <h2 style="margin-bottom: 30px; text-align: center;">List Your Product</h2>
+                <form id="sellForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="productName">Product Name *</label>
+                        <input type="text" id="productName" name="productName" required placeholder="Enter product name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="home">Home & Kitchen</option>
+                                <option value="sports">Sports</option>
+                                <option value="books">automotive and spareparts</option>
+                                <option value="toys">Toys & Games</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">Price (₹) *</label>
+                            <input type="number" id="productPrice" name="productPrice" required placeholder="Enter price" min="0" step="0.01">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Product Description *</label>
+                        <textarea id="description" name="description" required placeholder="Describe your product in detail..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sellerName">Your Name *</label>
+                            <input type="text" id="sellerName" name="sellerName" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Business Address *</label>
+                        <textarea id="address" name="address" required placeholder="Enter your business address..." style="min-height: 80px;"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Listing</button>
+                </form>
+            </div>
+
+            <!-- Benefits Section -->
+            <div style="margin-top: 80px;">
+                <h2 class="section-title">Why Sell with ShopHub?</h2>
+                <div class="benefits">
+                    <div class="benefit-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>Reach Millions</h3>
+                        <p>Access to millions of active buyers on our platform</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure Transactions</h3>
+                        <p>Secure payment processing and buyer protection</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Grow Your Business</h3>
+                        <p>Analytics and tools to help you grow sales</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-headset"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Dedicated seller support team always ready to help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About ShopHub</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShopHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = {
+                productName: document.getElementById('productName').value,
+                category: document.getElementById('category').value,
+                price: document.getElementById('productPrice').value,
+                description: document.getElementById('description').value,
+                sellerName: document.getElementById('sellerName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                submittedAt: new Date().toLocaleString()
+            };
+
+            // Save to localStorage for demonstration
+            let listings = JSON.parse(localStorage.getItem('sellerListings')) || [];
+            listings.push(formData);
+            localStorage.setItem('sellerListings', JSON.stringify(listings));
+
+            // Show success message
+            alert(`Thank you for your listing!\n\nProduct: ${formData.productName}\nWe will review your listing and notify you within 24 hours.`);
+
+            // Reset form
+            document.getElementById('sellForm').reset();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Buy & Sell Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1><i class="fas fa-shopping-bag"></i> ShopHub</h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="action-btn">
+                        <span>Wishlist</span>
+                    </a>
+                    <a href="pages/cart.html" class="action-btn">
+                        <span>Cart</span>
+                    </a>
+                    <a href="#" class="action-btn">
+                        <span>Account</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="pages/categories.html" class="nav-link">Categories</a></li>
+                    <li><a href="pages/bestsellers.html" class="nav-link">Best Sellers</a></li>
+                    <li><a href="pages/deals.html" class="nav-link">Deals</a></li>
+                    <li><a href="pages/sell.html" class="nav-link">Sell</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to ShopHub</h2>
+            <p>Find Amazing Products at Great Prices</p>
+            <button class="btn btn-primary" onclick="document.querySelector('.categories').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('electronics', event)">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Electronics</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('fashion', event)">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Fashion</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('home', event)">
+                    <i class="fas fa-home"></i>
+                    <h3>Home & Garden</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('sports', event)">
+                    <i class="fas fa-basketball"></i>
+                    <h3>Sports</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('books', event)">
+                    <i class="fas fa-book"></i>
+                    <h3>automotive and spareparts</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('toys', event)">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Toys & Games</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="filter-controls">
+                <button class="filter-btn active" onclick="filterByCategory('all', event)">All</button>
+                <button class="filter-btn" onclick="filterByCategory('electronics', event)">Electronics</button>
+                <button class="filter-btn" onclick="filterByCategory('fashion', event)">Fashion</button>
+                <button class="filter-btn" onclick="filterByCategory('home', event)">Home</button>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About ShopHub</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShopHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
